@@ -86,22 +86,26 @@ char numtochar(int a)
 }
 int main()
 {
-char a[]="YRRQKYTMTCMCLHBWONB";
-char b;
-cout<<a;
-int i,j,k;
-for(i=1;i<27;i++)
-{
-        k=a[0];
-        k=k-65;
-        k=k+i;
-        b=numtochar(k);
-        cout<<b;
-        for(j=1;j<19;j++)
-        {
-                
-        }
-        cout<<"\n";
-}
-return 0;
+    cout<<"enter the text to be encrypted and the wordlength\n";
+    char pt[100];
+    char ct[100];
+    char b;
+    int len,tmp,tmp2,tmp3,i,j,k;
+    cin>>pt>>len;
+    cout<<"\n Enter the starting code";
+    int c;
+    cin>>c;
+    tmp=(pt[0]+c-65)%26;
+    b=numtochar(tmp);
+    ct[0]=b;
+    //cout<<b;
+    for(i=1;i<len;i++)
+    {
+        tmp=(pt[i]-65+pt[i-1])%26;
+        b=numtochar(tmp);
+        ct[i]=b;
+        //cout<<b;
+    }
+    cout<<"\n"<<ct;
+    return 0;
 }
