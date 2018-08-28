@@ -102,14 +102,12 @@ int keyval[keyl];
 for(i=0;i<keyl;i++)
 {
     keyval[i]=key[i]-65;
-    //cout<<"\n"<<keyval[i];
 }
 cout<<"\n";
 for(i=0;i<ptl;i++)
 {
     tmp=(pt[i]+keyval[i%keyl]-65)%26;
     b=numtochar(tmp);
-    //cout<<b;
     ct[i]=b;
 }
 cout<<"\n the encrypted text is : "<<ct<<"\n";
