@@ -1,3 +1,4 @@
+/*Question 2 A : Implementation of Autokey Cipher*/
 #include<iostream>
 using namespace std;
 char numtochar(int a)
@@ -86,26 +87,27 @@ char numtochar(int a)
 }
 int main()
 {
-    cout<<"enter the text to be encrypted and the wordlength\n";
-    char pt[100];
-    char ct[100];
-    char b;
-    int len,tmp,tmp2,tmp3,i,j,k;
-    cin>>pt>>len;
-    cout<<"\n Enter the starting code";
-    int c;
-    cin>>c;
-    tmp=(pt[0]+c-65)%26;
+    int i,j,k,tmp,tmp2,ptl,key;
+    char pt[100],b;
+    cout<<"\n Enter (in caps) the text you want to encrypt with no spaces\n";
+    cin>>pt;
+    cout<<"\n Enter the length of the text\n";
+    cin>>ptl;
+    cout<<"\nEnter the key for the first letter\n";
+    cin>>key;
+    tmp=(pt[0]+key-65)%26;
+    tmp2=tmp;
+    cout<<"\n The initial key value is now : "<<tmp<<"\n";
     b=numtochar(tmp);
-    ct[0]=b;
-    //cout<<b;
-    for(i=1;i<len;i++)
+    //cout<<"\n The initial letter is now : "<<b<<"\n";
+    cout<<b;
+    for(i=1;i<ptl;i++)
     {
-        tmp=(pt[i]-65+pt[i-1])%26;
+        tmp=(pt[i]+pt[i-1]-130)%26;
+        //cout<<tmp<<"\n";
         b=numtochar(tmp);
-        ct[i]=b;
-        //cout<<b;
+        //tmp2=tmp;
+        cout<<b;
     }
-    cout<<"\n"<<ct;
     return 0;
 }
