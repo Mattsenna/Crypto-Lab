@@ -1,3 +1,4 @@
+/*Question 2 B : Autokey bruteforcing with given string*/
 #include<iostream>
 using namespace std;
 char numtochar(int a)
@@ -86,24 +87,25 @@ char numtochar(int a)
 }
 int main()
 {
+    int i,j,k,tmp,tmp2,ptl,key;
     char pt[]="YRRQKYTMTCMCLHBWONB";
-    char tmp[19];
-    int i,j,k,l;
+    char tp[19];
     char b;
-    for(i=0;i<26;i++)
+    ptl=19;
+    for(i=1;i<=26;i++)
     {
-        k=pt[0];
-        k=(k-65+i)%26;
-        b=numtochar(k);
+        tmp=(pt[0]+i-65)%26;
+        tmp2=tmp;
+        b=numtochar(tmp);
         cout<<b;
-        tmp[0]=b;
+        tp[0]=b;
         for(j=1;j<19;j++)
         {
-            k=pt[j];
-            tmp[j]=pt[j];
-            l=tmp[j-1];
-            k=(k-65+l)%26;
-            b=numtochar(k);
+            //cout<<pt[j];
+            tmp=(pt[j]+tp[j-1]-130)%26;
+            //cout<<tmp<<"\n";
+            b=numtochar(tmp);
+            tp[j]=b;
             cout<<b;
         }
         cout<<"\n";
