@@ -136,8 +136,6 @@ int main()
             b=numtochar(tmp);
             op<<b;
             }
-            //iter=(i*10)+j;
-            //op<<"\n\n\nITERATION "<<iter<<" \n\n\n";
         }
     }
     return 0;
