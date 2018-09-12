@@ -15,10 +15,6 @@ int xor_op(int a, int b)
 int main()
 {
     int len,i,randNum;
-    /*cout<<"\nEnter values of a and b\n";
-    cin>>a>>b;
-    c=xor_op(a,b);
-    cout<<"\nXOR'd value = "<<c;*/
     cout<<"\nEnter length of bit stream\n";
     cin>>len;
     int bit_stream[len],cipher_stream[len],cipher_text[len],decrypted[len];  
@@ -29,28 +25,28 @@ int main()
     } 
     for(i=0;i<len;i++)
     {
-        srand(i);
-        randNum=rand()%2;
-        cipher_stream[i]=randNum;
-        cipher_text[i]=xor_op(bit_stream[i],cipher_stream[i]);
-        decrypted[i]=xor_op(cipher_text[i],cipher_stream[i]);
+        srand(i);//seeding with loop value
+        randNum=rand()%2;//random 0 or 1
+        cipher_stream[i]=randNum;//adding new bit to cipher array 
+        cipher_text[i]=xor_op(bit_stream[i],cipher_stream[i]);//Generating ciphertext with XOR 
+        decrypted[i]=xor_op(cipher_text[i],cipher_stream[i]);//Decrypting Ciphertext with XOR 
     }
-    cout<<"\nThe plaintext is :      ";
+    cout<<"\nThe plaintext is :      ";//Outputting plaintext
     for(i=0;i<len;i++)
     {
         cout<<bit_stream[i];
     }
-    cout<<"\nThe cipher stream  is : ";
+    cout<<"\nThe cipher stream  is : ";//Outputting cipher
     for(i=0;i<len;i++)
     {
         cout<<cipher_stream[i];
     }
-    cout<<"\nThe encrypted text is : ";
+    cout<<"\nThe encrypted text is : ";//Outputting encrypted text
     for(i=0;i<len;i++)
     {
         cout<<cipher_text[i];
     }
-    cout<<"\nThe decrypted text is : ";
+    cout<<"\nThe decrypted text is : ";//Outputting decrypted text
     for(i=0;i<len;i++)
     {
         cout<<decrypted[i];
