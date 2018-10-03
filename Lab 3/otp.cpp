@@ -1,17 +1,8 @@
 #include<iostream>
 #include<math.h>
+#include<time.h>
+#include<unistd.h>
 using namespace std;
-int xor_op(int a, int b)
-{
-    if((a==0)&&(b==0))
-    return 0;
-    if((a==0)&&(b==1))
-    return 1;
-    if((a==1)&&(b==0))
-    return 1;
-    if((a==1)&&(b==1))
-    return 0;
-}
 int main()
 {
     int len,i,randNum;
@@ -25,7 +16,9 @@ int main()
     } 
     for(i=0;i<len;i++)
     {
-        srand(i);//seeding with loop value
+        //srand(i);//seeding with loop value
+        srand(time(0)); 
+        usleep(3000000);
         randNum=rand()%2;//random 0 or 1
         cipher_stream[i]=randNum;//adding new bit to cipher array 
         cipher_text[i]=xor_op(bit_stream[i],cipher_stream[i]);//Generating ciphertext with XOR 

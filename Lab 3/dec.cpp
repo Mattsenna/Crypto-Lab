@@ -126,7 +126,7 @@ int main()
     {
         for(j=1;j<26;j++)
         {
-            op<<"\n\n Multiplicative Value ="<<mulinv[i]<<" Additive Value = "<<j<<"\n\n"; 
+            op<<"\n\n \n\n"; 
             for(k=0;k<strlen(cipher);k++)
             {
             tmp=cipher[k];
